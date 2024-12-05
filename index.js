@@ -48,7 +48,7 @@ app.post('/', (req, res) => {
             return;
         }
 
-        var sql = "insert into leads(first_name, last_name, email, phone_number, company_name, lead_score) values(?,?,?,?,?,?)"
+        var sql = "insert into leads(first_name, last_name, email, phone_number, company_name, lead_score,created_at,updated_at) values(?,?,?,?,?,?,NOW(),NOW())"
         connection.query(sql, [firstName, lastName, email, phone, company, leadScore], (error, results) => {
             connection.release(); // Release the connection back to the pool
 
